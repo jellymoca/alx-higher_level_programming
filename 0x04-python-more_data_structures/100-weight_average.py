@@ -1,16 +1,15 @@
 #!/usr/bin/python3
 """
-module 100-weight_average
-
-Contains function weight_average
+returns the weighted average of all integers tuple (<score>, <weight>)
 """
 
 
 def weight_average(my_list=[]):
     """
-    Returns the weighted average of all integers tuple (<score>, <weight>)
+    Return the weighted average of all integers tuple (<score>, <weight>)
     """
     if not my_list:
         return 0
-    return sum(score * weight for score, weight in my_list)
-    / sum(weight for score, weight in my_list)
+    numerator = sum(score * weight for score, weight in my_list)
+    denominator = sum(weight for score, weight in my_list)
+    return numerator / denominator
