@@ -1,26 +1,25 @@
 #!/usr/bin/python3
+"""
+Module for roman_to_int function
+"""
+
+
 def roman_to_int(roman_string):
-    if not roman_string or not isinstance(roman_string, str):
+    """
+    Convert a Roman numeral to an integer
+    """
+
+    if not isinstance(roman_string, str) or roman_string is None:
         return 0
 
-    roman_dict = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000
-    }
-
-    total = 0
+    a = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+         'C': 100, 'D': 500, 'M': 1000}
+    res = 0
     n = len(roman_string)
 
     for i in range(n):
-        if i + 1 < n and roman_dict[roman_string[i]]
-        < roman_dict[roman_string[i + 1]]:
-            total -= roman_dict[roman_string[i]]
+        if i < n - 1 and a[roman_string[i]] < a[roman_string[i + 1]]:
+            res -= a[roman_string[i]]
         else:
-            total += roman_dict[roman_string[i]]
-
-    return total
+            res += a[roman_string[i]]
+    return res
